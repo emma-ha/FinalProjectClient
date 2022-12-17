@@ -58,3 +58,21 @@ export const fetchStudent = (student) => {
     payload: student,
   };
 };
+
+
+
+//--------------------------------------------------------------
+//ADDED CREATORS
+export const deleteCampus = (campusId) => {
+  return {
+    type: at.DELETE_CAMPUS,
+    payload: campusId,
+  };
+};
+
+export const addCampus = (campus) => {
+  return {
+    type: at.ADD_CAMPUS,
+    payload: campus,
+  };
+};
