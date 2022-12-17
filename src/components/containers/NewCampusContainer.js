@@ -11,9 +11,10 @@ class NewCampusContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      firstname: "", 
-      lastname: "", 
-      campusId: null, 
+      name: "",
+      address: "",  
+      description: "", 
+      campusId: null,
       redirect: false, 
       redirectId: null
     };
@@ -30,22 +31,24 @@ class NewCampusContainer extends Component {
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
 
-    let student = {
-        firstname: this.state.firstname,
-        lastname: this.state.lastname,
-        campusId: this.state.campusId
+    let campus = {
+        campusId: this.state.campusId,
+        name: this.state.name,
+        address: this.state.address,
+        description: this.state.description
     };
     
     // Add new student in back-end database
-    let newStudent = await this.props.addStudent(student);
+    await this.props.addCampus(campus);
 
     // Update state, and trigger redirect to show the new student
     this.setState({
-      firstname: "", 
-      lastname: "", 
-      campusId: null, 
+      name: "", 
+      address: "",
+      description: "",
       redirect: true, 
-      redirectId: newStudent.id
+      redirectId: this.state.campusId,
+      campusId: null
     });
   }
 
@@ -58,7 +61,7 @@ class NewCampusContainer extends Component {
   render() {
     // Redirect to new student's page after submit
     if(this.state.redirect) {
-      return (<Redirect to={`/student/${this.state.redirectId}`}/>)
+      return (<Redirect to={`/campus/${this.state.redirectId}`}/>)
     }
 
     // Display the input form via the corresponding View component
@@ -85,5 +88,5 @@ const mapDispatch = (dispatch) => {
 
 // Export store-connected container by default
 // NewStudentContainer uses "connect" function to connect to Redux Store and to read values from the Store 
-// (and re-read the values when the Store State updates).
+// (and re-read the values whsen the Store State updates).
 export default connect(null, mapDispatch)(NewCampusContainer);
