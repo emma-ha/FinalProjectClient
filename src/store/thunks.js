@@ -122,3 +122,12 @@ export const addCampusThunk = (campus) => async (dispatch) => {
     console.log(err);
   }
 }
+
+export const editCampusThunk = campus => async dispatch => { 
+  try {
+    let updatedCampus = await axios.put(`/api/campuses/${campus.id}`, campus); 
+    dispatch(ac.editCampus(updatedCampus));
+  } catch(err) {
+    console.error(err);
+  }
+};

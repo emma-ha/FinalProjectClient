@@ -19,4 +19,4 @@ export const FETCH_STUDENT = "FETCH_STUDENT";
 //ADDED action types
 export const DELETE_CAMPUS = "DELETE_CAMPUS";
 export const ADD_CAMPUS = "ADD_CAMPUS";
-
+export const EDIT_CAMPUS = "EDIT_CAMPUS";
