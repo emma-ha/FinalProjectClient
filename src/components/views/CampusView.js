@@ -1,8 +1,3 @@
-/*==================================================
-CampusView.js
-The Views component is responsible for rendering web page with data provided by the corresponding Container component.
-It constructs a React component to display a single campus and its students (if any).
-================================================== */
 import { Link, useHistory } from "react-router-dom";
 
 // Take in props data to construct the component
@@ -14,6 +9,7 @@ const CampusView = (props) => {
   return (
     <div>
       <h1>{campus.name}</h1>
+      <h1>{campus.campusId}</h1>
       <p>{campus.address}</p>
       <p>{campus.description}</p>
       <button onClick={() => {update.push(`/campus/${campus.id}/edit`);}}>Edit Campus Info</button>
