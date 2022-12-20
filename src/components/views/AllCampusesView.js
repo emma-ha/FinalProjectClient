@@ -19,9 +19,6 @@ const AllCampusesView = (props) => {
       </div>
       );
   }
-  
-  
-
   // If there is at least one campus, render All Campuses view 
   return (
     <div>
