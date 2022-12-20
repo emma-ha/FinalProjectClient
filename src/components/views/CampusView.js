@@ -9,7 +9,6 @@ const CampusView = (props) => {
   return (
     <div>
       <h1>{campus.name}</h1>
-      <h1>{campus.campusId}</h1>
       <p>{campus.address}</p>
       <p>{campus.description}</p>
       <button onClick={() => {update.push(`/campus/${campus.id}/edit`);}}>Edit Campus Info</button>

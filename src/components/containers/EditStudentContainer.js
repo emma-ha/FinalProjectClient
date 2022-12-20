@@ -83,7 +83,7 @@ class EditStudentContainer extends Component {
 // The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Store.
 const mapDispatch = (dispatch) => {
     return({
-        fetchCampus: (campusId) => dispatch(fetchCampusThunk(campusId)),
+        fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
         editCampus: (student) => dispatch(editStudentThunk(student)),
     })
 }
